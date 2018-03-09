@@ -5,8 +5,8 @@ defmodule Availabit.Events do
 
   import Ecto.Query, warn: false
   alias Availabit.Repo
-
   alias Availabit.Events.Event
+  alias Availabit.Events.EventEntry
 
   @doc """
   Returns the list of events.
@@ -100,5 +100,99 @@ defmodule Availabit.Events do
   """
   def change_event(%Event{} = event) do
     Event.changeset(event, %{})
+  end
+
+  @doc """
+  Returns the list of events_entries.
+
+  ## Examples
+
+      iex> list_events_entries()
+      [%EventEntry{}, ...]
+
+  """
+  def list_events_entries do
+    Repo.all(EventEntry)
+  end
+
+  @doc """
+  Gets a single event_entry.
+
+  Raises `Ecto.NoResultsError` if the Event entry does not exist.
+
+  ## Examples
+
+      iex> get_event_entry!(123)
+      %EventEntry{}
+
+      iex> get_event_entry!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_event_entry!(id), do: Repo.get!(EventEntry, id)
+
+  @doc """
+  Creates a event_entry.
+
+  ## Examples
+
+      iex> create_event_entry(%{field: value})
+      {:ok, %EventEntry{}}
+
+      iex> create_event_entry(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_event_entry(attrs \\ %{}) do
+    %EventEntry{}
+    |> EventEntry.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a event_entry.
+
+  ## Examples
+
+      iex> update_event_entry(event_entry, %{field: new_value})
+      {:ok, %EventEntry{}}
+
+      iex> update_event_entry(event_entry, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_event_entry(%EventEntry{} = event_entry, attrs) do
+    event_entry
+    |> EventEntry.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a EventEntry.
+
+  ## Examples
+
+      iex> delete_event_entry(event_entry)
+      {:ok, %EventEntry{}}
+
+      iex> delete_event_entry(event_entry)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_event_entry(%EventEntry{} = event_entry) do
+    Repo.delete(event_entry)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking event_entry changes.
+
+  ## Examples
+
+      iex> change_event_entry(event_entry)
+      %Ecto.Changeset{source: %EventEntry{}}
+
+  """
+  def change_event_entry(%EventEntry{} = event_entry) do
+    EventEntry.changeset(event_entry, %{})
   end
 end
