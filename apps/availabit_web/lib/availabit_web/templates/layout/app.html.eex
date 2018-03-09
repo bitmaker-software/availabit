@@ -13,15 +13,23 @@
   </head>
 
   <body>
+    <%= render AvailabitWeb.LayoutView, "_navbar.html", assigns %>
+
     <%= if get_flash(@conn, :info) do %>
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <div class="container">
+        <div class="alert alert-info mt-3" role="alert">
+          <%= get_flash(@conn, :info) %>
+        </div>
+      </div>
     <% end %>
 
     <%= if get_flash(@conn, :error) do %>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <div class="container">
+        <div class="alert alert-danger mt-3" role="alert">
+          <%= get_flash(@conn, :error) %>
+        </div>
+      </div>
     <% end %>
-
-    <%= render AvailabitWeb.LayoutView, "_navbar.html", assigns %>
 
     <%= render @view_module, @view_template, assigns %>
 

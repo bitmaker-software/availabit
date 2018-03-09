@@ -63,3 +63,43 @@ body {
   margin: 0 auto;
   max-width: 883px;
 }
+
+.card.new-event {
+  border: solid 1px #d4d5dd;
+  border-radius: 6px;
+  margin: 150px auto 0px auto;
+  max-width: 858px;
+  padding: 46px 46px 20px 46px;
+}
+
+.card.new-event .card-title {
+  color: #282636;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.card.new-event .form-actions {
+  margin-top: 40px;
+}
+
+.form-group label {
+  font-weight: 700;
+}
+
+.btn {
+  border-radius: 6px;
+  font-weight: 800;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 60px;
+}
+
+.btn.btn-primary {
+  background-color: #4786ff;
+}
+
+.btn.btn-light {
+  background-color: rgba(131, 149, 183, 0.5);
+  color: #ffffff;
+}

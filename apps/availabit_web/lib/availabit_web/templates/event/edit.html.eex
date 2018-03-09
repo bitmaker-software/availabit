@@ -1,5 +1,7 @@
-<h2>Edit Event</h2>
+<div class="card new-event">
+  <div class="card-body">
+    <h5 class="card-title">Edit event</h5>
 
-<%= render "form.html", Map.put(assigns, :action, event_path(@conn, :update, @event)) %>
-
-<span><%= link "Back", to: event_path(@conn, :index) %></span>
+    <%= render "form.html", Map.put(assigns, :action, event_path(@conn, :update, @event)) %>
+  </div>
+</div>

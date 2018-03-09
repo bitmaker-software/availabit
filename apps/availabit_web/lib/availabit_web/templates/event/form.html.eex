@@ -1,23 +1,34 @@
 <%= form_for @changeset, @action, fn f -> %>
   <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
+    <div class="alert alert-danger" role="alert">
+      Oops, something went wrong! Please check the errors below.
     </div>
   <% end %>
 
   <div class="form-group">
     <%= label f, :name, class: "control-label" %>
-    <%= text_input f, :name, class: "form-control" %>
+    <%= if f.errors[:name] do %>
+      <%= text_input f, :name, class: "form-control is-invalid" %>
+    <% else %>
+      <%= text_input f, :name, class: "form-control" %>
+    <% end %>
     <%= error_tag f, :name %>
   </div>
 
   <div class="form-group">
     <%= label f, :location, class: "control-label" %>
-    <%= text_input f, :location, class: "form-control" %>
+    <%= if f.errors[:location] do %>
+      <%= text_input f, :location, class: "form-control is-invalid" %>
+    <% else %>
+      <%= text_input f, :location, class: "form-control" %>
+    <% end %>
     <%= error_tag f, :location %>
   </div>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+  <div class="float-right form-actions">
+    <div class="form-group">
+      <%= link "Back", to: event_path(@conn, :index), class: "btn btn-light" %>
+      <%= submit "Save", class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>
