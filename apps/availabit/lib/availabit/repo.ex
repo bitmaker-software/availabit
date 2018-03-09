@@ -1,5 +1,5 @@
 defmodule Availabit.Repo do
-  use Ecto.Repo, otp_app: :availabit
+  use Ecto.Repo, otp_app: :availabit, adapter: Sqlite.Ecto2
 
   @doc """
   Dynamically loads the repository url from the

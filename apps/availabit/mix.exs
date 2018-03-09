@@ -36,7 +36,7 @@ defmodule Availabit.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:postgrex, ">= 0.0.0"},
+      {:sqlite_ecto2, "~> 2.2"},
       {:ecto, "~> 2.1"}
     ]
   end
