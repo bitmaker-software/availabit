@@ -1,1 +1,65 @@
 /* This file is for your main application css. */
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800');
+
+body {
+  background-color: #f5f7fa;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px 0 rgba(205, 212, 217, 0.65);
+  height: 70px;
+}
+
+.navbar .logo img {
+  height: 35px;
+}
+
+.navbar .github-login {
+  align-items: center;
+  background-color: #282636;
+  border-radius: 4px;
+  color: #ffffff;
+  display: flex;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 12px;
+}
+
+.navbar .github-login:hover {
+  text-decoration: none;
+}
+
+.navbar .github-login img {
+  margin-right: 15px;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  margin: 150px auto 0px auto;
+  max-width: 450px;
+}
+
+.landing img.logo {
+  height: 100px;
+  margin-bottom: 50px;
+}
+
+.landing p {
+  color: #282636;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.landing-sample {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.landing-sample img {
+  margin: 0 auto;
+  max-width: 883px;
+}

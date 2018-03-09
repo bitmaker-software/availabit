@@ -1,0 +1,15 @@
+<div class="navbar">
+  <div class="container">
+    <div class="logo">
+      <%= link to: page_path(@conn, :index) do %>
+        <img src="<%= static_path(@conn, "/images/availabit.svg") %>" alt="Availabit">
+      <% end %>
+    </div>
+    <div class="pull-right">
+      <a href="#" class="github-login">
+        <img src="<%= static_path(@conn, "/images/github.svg") %>" alt="GitHub">
+        Login with GitHub
+      </a>
+    </div>
+  </div>
+</div>

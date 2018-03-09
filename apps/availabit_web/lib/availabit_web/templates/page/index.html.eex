@@ -1,3 +1,8 @@
-<div class="container">
-  <h1>Availabit</h1>
+<div class="landing">
+  <img class="logo" src="<%= static_path(@conn, "/images/availabit.svg") %>" alt="Availabit">
+  <p>Compare availability to find the best time for everyone to meet.</p>
+</div>
+
+<div class="landing-sample">
+  <img src="<%= static_path(@conn, "/images/sample.png") %>" alt="Availabit">
 </div>
