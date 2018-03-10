@@ -95,6 +95,13 @@ body {
   padding: 0 60px;
 }
 
+.btn.btn-sm {
+  font-size: .875rem;
+  line-height: 30px;
+  height: 30px;
+  padding: 0 30px;
+}
+
 .btn.btn-primary {
   background-color: #4786ff;
 }
@@ -102,4 +109,52 @@ body {
 .btn.btn-light {
   background-color: rgba(131, 149, 183, 0.5);
   color: #ffffff;
+}
+
+h1.title {
+  color: #282636;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+h2.subtitle {
+  color: #7b7d86;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+table.table {
+  border-collapse: separate;
+  border-spacing: 0px 10px;
+}
+
+table.table th {
+  border: none;
+  color: #7b7d86;
+  font-weight: 700;
+}
+
+table.table td {
+  border: none;
+  padding: 0px;
+}
+
+table.table tbody tr td:first-child div {
+  border-left: solid 1px #dfe0e8;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+table.table tbody tr td:last-child div {
+  border-right: solid 1px #dfe0e8;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+table.table tbody tr td div {
+  background-color: #ffffff;
+  border: solid 1px #dfe0e8;
+  border-left: none;
+  border-right: none;
+  padding: 17px;
 }

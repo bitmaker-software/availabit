@@ -1,28 +1,36 @@
-<h2>Listing Events</h2>
+<div class="container mt-5">
+  <h1 class="title mb-5">Listing Events</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Location</th>
+  <div class="float-right">
+    <%= link "New Event", to: event_path(@conn, :new), class: "btn btn-primary" %>
+  </div>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for event <- @events do %>
-    <tr>
-      <td><%= event.name %></td>
-      <td><%= event.location %></td>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for event <- @events do %>
+          <tr>
+            <td>
+              <div><%= link event.name, to: event_path(@conn, :show, event) %></div>
+            </td>
+            <td>
+              <div><%= event.location %></div>
+            </td>
 
-      <td class="text-right">
-        <span><%= link "Show", to: event_path(@conn, :show, event), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: event_path(@conn, :edit, event), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: event_path(@conn, :delete, event), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
-
-<span><%= link "New Event", to: event_path(@conn, :new) %></span>
+            <td class="text-right">
+              <div>
+                <%= link "Edit", to: event_path(@conn, :edit, event), class: "mr-3" %>
+                <%= link "Delete", to: event_path(@conn, :delete, event), method: :delete, data: [confirm: "Are you sure?"] %>
+              </div>
+            </td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
