@@ -1,18 +1,39 @@
-<h2>Show Event</h2>
+<div id="event-app" class="container mt-5">
+  <h1 class="title"><%= @event.name %></h1>
+  <h2 class="subtitle mb-5"><%= @event.location %></h2>
 
-<ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th class="text-center">Monday</th>
+        <th class="text-center">Thursday</th>
+        <th class="text-center">Wednesday</th>
+        <th class="text-center">Tuesday</th>
+        <th class="text-center">Friday</th>
+        <th class="text-center">Saturday</th>
+        <th class="text-center">Sunday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="entry in entries">
+        <td>
+          <div class="entry-user">
+            <img class="entry-user-avatar" v-bind:src="entry.user.avatar" v-bind:alt="entry.user.name">
+            {{ entry.user.name }}
+          </div>
+        </td>
+        <td v-for="slot in entry.slots">
+          <div class="text-center">
+            <input type="checkbox" name="" v-bind:checked="slot" v-bind:disabled="user.id !== entry.user.id">
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-  <li>
-    <strong>Name:</strong>
-    <%= @event.name %>
-  </li>
-
-  <li>
-    <strong>Location:</strong>
-    <%= @event.location %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: event_path(@conn, :edit, @event) %></span>
-<span><%= link "Back", to: event_path(@conn, :index) %></span>
+<script type="text/javascript">
+  window.user = <%= raw(Poison.encode!(get_authenticated_user(@conn))) %>;
+  window.eventEntries = <%= raw(Poison.encode!(@event.entries)) %>;
+</script>

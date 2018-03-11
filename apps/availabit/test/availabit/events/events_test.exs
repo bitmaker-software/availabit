@@ -25,7 +25,7 @@ defmodule Availabit.EventsTest do
     end
 
     test "get_event!/1 returns the event with given id" do
-      event = event_fixture()
+      event = event_fixture() |> Repo.preload([entries: :user])
       assert Events.get_event!(event.id) == event
     end
 
@@ -48,7 +48,7 @@ defmodule Availabit.EventsTest do
     end
 
     test "update_event/2 with invalid data returns error changeset" do
-      event = event_fixture()
+      event = event_fixture() |> Repo.preload([entries: :user])
       assert {:error, %Ecto.Changeset{}} = Events.update_event(event, @invalid_attrs)
       assert event == Events.get_event!(event.id)
     end

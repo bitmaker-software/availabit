@@ -214,5 +214,16 @@ table.table tbody tr td div {
   border: solid 1px #dfe0e8;
   border-left: none;
   border-right: none;
+  font-weight: 600;
   padding: 17px;
+}
+
+table.table tbody td div.entry-user {
+  padding: 9px 17px;
+}
+
+table.table tbody td div.entry-user img.entry-user-avatar {
+  border-radius: 100%;
+  height: 40px;
+  margin-right: 20px;
 }
