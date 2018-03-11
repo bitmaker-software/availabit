@@ -4,6 +4,7 @@ defmodule Availabit.Events.Event do
   alias Availabit.Accounts.User
   alias Availabit.Events.EventEntry
 
+  @derive {Poison.Encoder, only: [:id, :location, :name, :entries]}
   schema "events" do
     field :location, :string
     field :name, :string

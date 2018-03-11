@@ -154,6 +154,27 @@ defmodule Availabit.Events do
   end
 
   @doc """
+  Creates or update an event_entry.
+
+  ## Examples
+
+      iex> create_or_update_entry(%{field: value})
+      {:ok, %EventEntry{}}
+
+      iex> create_or_update_entry(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_or_update_entry(attrs) do
+    case Repo.get_by(EventEntry, %{user_id: attrs.user_id, event_id: attrs.event_id}) do
+      nil ->
+        create_event_entry(attrs)
+      event_entry ->
+        update_event_entry(event_entry, attrs)
+    end
+  end
+
+  @doc """
   Updates a event_entry.
 
   ## Examples

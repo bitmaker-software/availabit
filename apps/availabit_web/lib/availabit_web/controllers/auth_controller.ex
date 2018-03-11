@@ -16,6 +16,7 @@ defmodule AvailabitWeb.AuthController do
         conn
         |> put_flash(:info, "Successfully authenticated.")
         |> put_session(:user, user)
+        |> put_session(:user_token, Phoenix.Token.sign(conn, "user socket", user.id))
         |> redirect(to: page_path(conn, :index))
       {:error, _changeset} ->
         conn
