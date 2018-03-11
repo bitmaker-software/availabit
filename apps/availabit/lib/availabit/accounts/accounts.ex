@@ -56,6 +56,36 @@ defmodule Availabit.Accounts do
   end
 
   @doc """
+  Queries the database for the given `email` address. If no user is found,
+  creates it.
+
+  ## Examples
+
+      iex> get_or_create_user(%{field: value})
+      %User{}
+
+  """
+  def get_or_create_user(%{email: email} = attrs) do
+    case Repo.get_by(User, %{email: email}) do
+      nil ->
+        attrs = Map.update!(attrs, :name, fn value ->
+          case value do
+            nil -> attrs.nickname
+            name -> name
+          end
+        end)
+
+        create_user(%{
+          avatar: attrs.image,
+          email: attrs.email,
+          name: attrs.name,
+        })
+      user ->
+        {:ok, user}
+    end
+  end
+
+  @doc """
   Updates a user.
 
   ## Examples

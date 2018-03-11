@@ -5,11 +5,42 @@
         <img src="<%= static_path(@conn, "/images/availabit.svg") %>" alt="Availabit">
       <% end %>
     </div>
-    <div class="pull-right">
-      <a href="#" class="github-login">
-        <img src="<%= static_path(@conn, "/images/github.svg") %>" alt="GitHub">
-        Login with GitHub
-      </a>
-    </div>
+    <%= if user = get_authenticated_user(@conn) do %>
+      <div class="ml-auto">
+        <div class="dropdown events-dropdown">
+          <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown">
+            Events
+          </a>
+          <div class="dropdown-menu">
+            <%= for event <- Enum.take(Availabit.Events.list_events(), 3) do %>
+              <%= link event.name, to: event_path(@conn, :show, event.id), class: "dropdown-item" %>
+            <% end %>
+            <%= link "All events", to: event_path(@conn, :index), class: "dropdown-item all-events" %>
+            <%= link to: event_path(@conn, :new), class: "dropdown-item new-event" do %>
+              <img src="<%= static_path(@conn, "/images/plus.svg") %>" alt="New event">
+              New event
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="ml-5">
+        <div class="dropdown user-dropdown">
+          <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown">
+            <img src="<%= user.avatar %>" alt="<%= user.name %>">
+            <%= user.name %>
+          </a>
+          <div class="dropdown-menu">
+            <%= link "Logout", to: auth_path(@conn, :logout), method: :delete, class: "dropdown-item" %>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="pull-right">
+        <a href="<%= auth_path(@conn, :request, "github") %>" class="github-login">
+          <img src="<%= static_path(@conn, "/images/github.svg") %>" alt="GitHub">
+          Login with GitHub
+        </a>
+      </div>
+    <% end %>
   </div>
 </div>

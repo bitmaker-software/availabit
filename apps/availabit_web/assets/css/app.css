@@ -35,6 +35,64 @@ body {
   margin-right: 15px;
 }
 
+.navbar .user-dropdown a.dropdown-toggle, .navbar .events-dropdown a.dropdown-toggle {
+  color: #282636;
+  font-size: 18px;
+  font-weight: 700;
+  outline: none;
+  text-decoration: none;
+}
+
+.navbar .user-dropdown a img {
+  border-radius: 100%;
+  height: 50px;
+  margin-right: 20px;
+}
+
+.navbar .user-dropdown .dropdown-menu, .navbar .events-dropdown .dropdown-menu {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 20px 0 rgba(40, 38, 54, 0.25);
+  padding: 0;
+}
+
+.navbar .user-dropdown .dropdown-menu a, .navbar .events-dropdown .dropdown-menu a {
+  color: #282636;
+  font-size: 16px;
+  font-weight: 600;
+  outline: none;
+  padding: 14px 22px;
+}
+
+.navbar .user-dropdown .dropdown-menu a, .navbar .events-dropdown .dropdown-menu a:active {
+  background-color: #f8f9fa;
+}
+
+.navbar .user-dropdown .dropdown-menu a, .navbar .events-dropdown .dropdown-menu a:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.navbar .user-dropdown .dropdown-menu a, .navbar .events-dropdown .dropdown-menu a:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.navbar .events-dropdown .dropdown-menu a.dropdown-item.all-events {
+  background-color: #fafafa;
+}
+
+.navbar .events-dropdown .dropdown-menu a.dropdown-item.new-event {
+  background-color: #4786ff;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.navbar .events-dropdown .dropdown-menu a.dropdown-item.new-event img {
+  margin-right: 5px;
+}
+
 .landing {
   display: flex;
   flex-direction: column;

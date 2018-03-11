@@ -20,6 +20,14 @@ defmodule AvailabitWeb.Router do
     resources "/events", EventController
   end
 
+  scope "/auth", AvailabitWeb do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+    delete "/logout", AuthController, :logout
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", AvailabitWeb do
   #   pipe_through :api
