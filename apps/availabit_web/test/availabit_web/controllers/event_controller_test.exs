@@ -13,6 +13,8 @@ defmodule AvailabitWeb.EventControllerTest do
   end
 
   describe "index" do
+    setup [:authenticate_user]
+
     test "lists all events", %{conn: conn} do
       conn = get conn, event_path(conn, :index)
       assert html_response(conn, 200)
@@ -20,6 +22,8 @@ defmodule AvailabitWeb.EventControllerTest do
   end
 
   describe "new event" do
+    setup [:authenticate_user]
+
     test "renders form", %{conn: conn} do
       conn = get conn, event_path(conn, :new)
       assert html_response(conn, 200)
@@ -27,6 +31,8 @@ defmodule AvailabitWeb.EventControllerTest do
   end
 
   describe "create event" do
+    setup [:authenticate_user]
+
     test "redirects to show when data is valid", %{conn: conn} do
       conn = post conn, event_path(conn, :create), event: @create_attrs
 
@@ -44,7 +50,7 @@ defmodule AvailabitWeb.EventControllerTest do
   end
 
   describe "edit event" do
-    setup [:create_event]
+    setup [:create_event, :authenticate_user]
 
     test "renders form for editing chosen event", %{conn: conn, event: event} do
       conn = get conn, event_path(conn, :edit, event)
@@ -53,7 +59,7 @@ defmodule AvailabitWeb.EventControllerTest do
   end
 
   describe "update event" do
-    setup [:create_event]
+    setup [:create_event, :authenticate_user]
 
     test "redirects when data is valid", %{conn: conn, event: event} do
       conn = put conn, event_path(conn, :update, event), event: @update_attrs
@@ -70,7 +76,7 @@ defmodule AvailabitWeb.EventControllerTest do
   end
 
   describe "delete event" do
-    setup [:create_event]
+    setup [:create_event, :authenticate_user]
 
     test "deletes chosen event", %{conn: conn, event: event} do
       conn = delete conn, event_path(conn, :delete, event)
@@ -79,6 +85,12 @@ defmodule AvailabitWeb.EventControllerTest do
         get conn, event_path(conn, :show, event)
       end
     end
+  end
+
+  defp authenticate_user(%{conn: conn}) do
+    {:ok, user} = Availabit.Accounts.create_user(%{name: "John Doe", email: "john@test.com", avatar: "http://randomimage.png"})
+    conn = Plug.Test.init_test_session(conn, %{user: user})
+    {:ok, conn: conn}
   end
 
   defp create_event(_) do

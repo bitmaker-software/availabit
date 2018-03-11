@@ -25,8 +25,10 @@
 
             <td class="text-right">
               <div>
-                <%= link "Edit", to: event_path(@conn, :edit, event), class: "mr-3" %>
-                <%= link "Delete", to: event_path(@conn, :delete, event), method: :delete, data: [confirm: "Are you sure?"] %>
+                <%= if get_authenticated_user(@conn).id == event.user_id do %>
+                  <%= link "Edit", to: event_path(@conn, :edit, event), class: "mr-3" %>
+                  <%= link "Delete", to: event_path(@conn, :delete, event), method: :delete, data: [confirm: "Are you sure?"] %>
+                <% end %>
               </div>
             </td>
           </tr>

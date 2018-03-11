@@ -39,6 +39,7 @@ defmodule AvailabitWeb do
 
       import AvailabitWeb.Router.Helpers
       import AvailabitWeb.ErrorHelpers
+      import AvailabitWeb.ViewHelpers
       import AvailabitWeb.Gettext
     end
   end

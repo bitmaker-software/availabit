@@ -1,5 +1,6 @@
 defmodule AvailabitWeb.EventController do
   use AvailabitWeb, :controller
+  import AvailabitWeb.ViewHelpers
 
   alias Availabit.Events
   alias Availabit.Events.Event
@@ -15,6 +16,8 @@ defmodule AvailabitWeb.EventController do
   end
 
   def create(conn, %{"event" => event_params}) do
+    event_params = Map.put(event_params, "user_id", get_authenticated_user(conn).id)
+    
     case Events.create_event(event_params) do
       {:ok, event} ->
         conn

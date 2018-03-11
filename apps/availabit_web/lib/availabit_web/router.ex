@@ -9,14 +9,23 @@ defmodule AvailabitWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :authorization do
+    plug AvailabitWeb.Plugs.Authorization
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
 
   scope "/", AvailabitWeb do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
     get "/", PageController, :index
+  end
+
+  scope "/", AvailabitWeb do
+    pipe_through [:browser, :authorization]
+
     resources "/events", EventController
   end
 
