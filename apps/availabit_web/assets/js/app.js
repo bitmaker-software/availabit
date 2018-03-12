@@ -31,8 +31,11 @@ if (document.querySelector('#event-app')) {
           return entry.user.id === window.user.id;
         });
 
-        if (!userEntry) {
-          entries.push({user: this.user, slots: [false, false, false, false, false, false, false]});
+        if (userEntry) {
+          entries.splice(entries.indexOf(userEntry), 1);
+          entries.unshift(userEntry);
+        } else {
+          entries.unshift({user: this.user, slots: [false, false, false, false, false, false, false]});
         }
 
         this.entries = entries;
@@ -49,8 +52,8 @@ if (document.querySelector('#event-app')) {
       }
     },
     methods: {
-      slotChange: function (event, entry, slotIndex) {
-        entry.slots[slotIndex] = event.target.checked;
+      slotChange: function (event, entry, slotIndex, checked) {
+        entry.slots[slotIndex] = checked;
         channel.push('entry-update', {slots: entry.slots})
       },
     }

@@ -25,7 +25,10 @@
         </td>
         <td v-for="(slot, slotIndex) in entry.slots">
           <div class="text-center">
-            <input type="checkbox" name="" v-bind:checked="slot" v-bind:disabled="user.id !== entry.user.id" @change="slotChange($event, entry, slotIndex)">
+            <img v-if="slot && user.id === entry.user.id" v-on:click="slotChange($event, entry, slotIndex, false)" class="pointer" src="<%= static_path(@conn, "/images/checkbox-checked.svg") %>">
+            <img v-else-if="!slot && user.id === entry.user.id" v-on:click="slotChange($event, entry, slotIndex, true)" class="pointer" src="<%= static_path(@conn, "/images/checkbox-unchecked.svg") %>">
+            <img v-else-if="slot && user.id !== entry.user.id" src="<%= static_path(@conn, "/images/checkbox-checked-disabled.svg") %>">
+            <img v-else src="<%= static_path(@conn, "/images/checkbox-unchecked-disabled.svg") %>">
           </div>
         </td>
       </tr>

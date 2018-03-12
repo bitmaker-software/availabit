@@ -4,8 +4,8 @@ defmodule Availabit.Repo.Migrations.CreateEventsEntries do
   def change do
     create table(:events_entries) do
       add :slots, :string
-      add :event_id, references(:events, on_delete: :nothing)
-      add :user_id, references(:users, on_delete: :nothing)
+      add :event_id, references(:events, on_delete: :delete_all)
+      add :user_id, references(:users, on_delete: :delete_all)
 
       timestamps()
     end

@@ -219,6 +219,12 @@ table.table tbody tr td div {
   min-height: 60px;
 }
 
+table.table tbody tr td div.custom-checkbox {
+  border: none;
+  padding: 0px;
+  min-height: unset;
+}
+
 table.table tbody td div.entry-user {
   padding: 9px 17px;
 }
@@ -242,4 +248,8 @@ div.online-user {
 
 div.online-user:last-child {
   margin-bottom: 0px;
+}
+
+.pointer {
+  cursor: pointer;
 }
