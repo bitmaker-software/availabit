@@ -5,9 +5,10 @@ defmodule AvailabitWeb.EventChannelTest do
 
   setup do
     event = Availabit.EventsTest.event_fixture()
+    user = Availabit.AccountsTest.user_fixture()
 
     {:ok, _, socket} =
-      socket("user_id", %{some: :assign})
+      socket("user_id", %{user: user})
       |> subscribe_and_join(EventChannel, "event:#{event.id}")
 
     {:ok, [socket: socket, event: event]}

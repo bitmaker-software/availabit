@@ -10,6 +10,7 @@ defmodule AvailabitWeb.Application do
       supervisor(AvailabitWeb.Endpoint, []),
       # Start your own worker by calling: AvailabitWeb.Worker.start_link(arg1, arg2, arg3)
       # worker(AvailabitWeb.Worker, [arg1, arg2, arg3]),
+      supervisor(AvailabitWeb.Presence, []),
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

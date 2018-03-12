@@ -1,5 +1,6 @@
 defmodule AvailabitWeb.EventChannel do
   use AvailabitWeb, :channel
+  alias AvailabitWeb.Presence
   alias Availabit.Events
   alias Phoenix.Socket
 
@@ -14,6 +15,13 @@ defmodule AvailabitWeb.EventChannel do
 
   def handle_info(:after_join, socket) do
     broadcast_entries(socket)
+
+    push socket, "presence_state", Presence.list(socket)
+    {:ok, _} = Presence.track(socket, socket.assigns.user.id, %{
+      user: socket.assigns.user,
+      online_at: inspect(System.system_time(:seconds))
+    });
+
     {:noreply, socket}
   end
 

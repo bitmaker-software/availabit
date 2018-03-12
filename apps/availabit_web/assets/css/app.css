@@ -216,14 +216,30 @@ table.table tbody tr td div {
   border-right: none;
   font-weight: 600;
   padding: 17px;
+  min-height: 60px;
 }
 
 table.table tbody td div.entry-user {
   padding: 9px 17px;
 }
 
-table.table tbody td div.entry-user img.entry-user-avatar {
+table.table tbody td div.entry-user img.entry-user-avatar, .online-user img {
   border-radius: 100%;
   height: 40px;
   margin-right: 20px;
+}
+
+h3.online-users-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #282636;
+}
+
+div.online-user {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+div.online-user:last-child {
+  margin-bottom: 0px;
 }

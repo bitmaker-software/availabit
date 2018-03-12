@@ -31,6 +31,17 @@
       </tr>
     </tbody>
   </table>
+
+  <h3 class="online-users-title mt-5 mb-4">Online users looking at this event</h3>
+
+  <div class="card" v-if="onlineUsers.length > 0">
+    <div class="card-body">
+      <div v-for="user in onlineUsers" class="online-user">
+        <img v-bind:src="user.avatar" v-bind:alt="user.name">
+        {{ user.name }}
+      </div>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript">
