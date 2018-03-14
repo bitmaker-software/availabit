@@ -28,7 +28,7 @@ config :availabit_web, :generators,
 
 config :ueberauth, Ueberauth,
   providers: [
-    github: {Ueberauth.Strategy.Github, [default_scope: "user"]}
+    github: {Ueberauth.Strategy.Github, [default_scope: "read:user,user:email"]}
   ]
 
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
