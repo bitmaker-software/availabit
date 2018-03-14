@@ -261,3 +261,5 @@ Conditional flow control.
 
 ---?image=gitpitch/cover2.png
 @title[Institutional]
+<br><br><br>
+https://www.wearebitmaker.com/bitmaker-culture-book/
