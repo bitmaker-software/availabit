@@ -26,14 +26,48 @@ Master Degree in Network and Information Systems Engineering
 * DevOps
 
 ---?color=#3221a6
+@title[Erlang]
+
+## Erlang
+
+* Functional language
+* Developed in 1986 by Ericsson
+* Applied on telecommunications
+* Distributed, fault tolerant, high availability
+* Runs on the BEAM virtual machine
+
+---?color=#3221a6
+@title[What happened]
+
+## What happened between 1986 and now
+
+* The increased development and adoption of OOP languages
+* The development of the World Wide Web
+* The development of new frameworks for developing Web applications
+* Huge evangelization of popular vendors languages (Java, .NET, Javascript, ...)
+
+---?color=#3221a6
 @title[Elixir]
 
 ## Elixir
 
 * Functional Language
-* Based on Erlang, BEAM VM, interoperability with Erlang code
-* Big emphasis on distributed and fault-tolerant systems
+* Based on Erlang, runs on the BEAM VM, interoperability with Erlang code
+* Big emphasis on distributed, fault-tolerant, real-time systems
+* Learns from failures from previous languages
 * Promotes developer happiness and faster development
+
+---?color=#3221a6
+@title[Elixir is used by]
+
+## Elixir is used by
+
+* WhatsApp
+* Discord
+* Pinterest
+* Bet365
+* Lonely Planet
+* Bitmaker :)
 
 ---?color=#3221a6
 @title[Functional Programming]
